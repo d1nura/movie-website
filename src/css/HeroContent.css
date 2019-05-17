@@ -1,0 +1,12 @@
+h1 {
+  color: red;
+  font-size: 12vmin;
+}
+
+#heroContent {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border: 1px solid red;
+}
+/*# sourceMappingURL=HeroContent.css.map */

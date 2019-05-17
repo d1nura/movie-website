@@ -1,19 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHttp } from "../hooks/useHttp";
+import "../css/HeroContent.scss";
+import { SelectImgUrl } from "./SelectImgUrl";
+import GenreSelector from "./GenreSelector";
+
+//import { GenreSelector } from "./genreSelector";
 
 function HeroComponent() {
-  //let [data, setData] = useState(null);
+  let [data, load] = useHttp("discover/movie?sort_by=popularity.desc&");
 
-  let [data] = useHttp("movie/550?");
+  const returnData = () => {
+    let d = data.results.slice(0, 1)[0];
+    let imgUrl = SelectImgUrl("w1280/" + d.backdrop_path);
 
-  console.log(data);
-  const content = (
-    <div>
-      <h1>{data.original_title}</h1>
-    </div>
-  );
+    const content = (
+      <div>
+        <div id="heroPic" style={imgUrl} />
+        <div id="heroContent">
+          <div className="togetherTop">
+            <h4 id="releasedYear">
+              {[...d.release_date].slice(0, 4)}
+              <span id="genre">
+                <GenreSelector id={d.genre_ids} />
+              </span>
+            </h4>
 
-  return content;
+            <div id="vote">
+              <p>
+                <sub id="voteAvg">{d.vote_average}</sub>
+              </p>
+              <p>
+                <sup>
+                  <span>/</span>10
+                </sup>
+              </p>
+            </div>
+            <h4>{}</h4>
+          </div>
+
+          <h1>{d.title}</h1>
+          <p>{}</p>
+        </div>
+      </div>
+    );
+
+    //GenreSelector();
+    console.log(d);
+
+    return content;
+  };
+
+  let getData = data && load === false ? returnData() : <p>loading...</p>;
+  return getData;
+  // return load ? <p>loading...</p> : returnData();
 }
 
 export default HeroComponent;

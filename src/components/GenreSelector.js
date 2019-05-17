@@ -1,36 +1,41 @@
-import React, { useState } from "react";
+import React from "react";
 import { useHttp } from "../hooks/useHttp";
 
 function GenreSelector(props) {
   let [data, load] = useHttp("genre/movie/list?");
-  let [gen, setGen] = useState([]);
 
   //console.log(data.results);
   const getGenre = () => {
     //if (data) {
     //console.log(props.id);
     let genArr = [];
-    genArr.push(...props.id);
-    console.log(data.genres);
-    console.log(props.id);
+
     let l = 0;
-    let t = true;
-    while (t) {
+    let n = 0;
+    while (n < data.genres.length) {
       for (let i in data.genres) {
         //console.log(data.genres[0].id === props.id[0]);
         if (data.genres[i].id === props.id[l]) {
           console.log(data.genres[i].name, l);
+          //setGen([data.genres[i].name]);
+          genArr.push(data.genres[i].name);
           l++;
-          t = false;
         }
-        break;
       }
-      console.log(t);
+
+      n++;
     }
+    console.log(genArr);
+
     let content = (
-      <div>
-        <p>Genre{gen}</p>
-      </div>
+      <p>
+        {genArr.map((i, p) => {
+          if (p !== genArr.length - 1) {
+            i = i + ", ";
+          }
+          return i;
+        })}
+      </p>
     );
     return content;
   };

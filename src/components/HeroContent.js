@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { useHttp } from "../hooks/useHttp";
 import "../css/HeroContent.scss";
 import { SelectImgUrl } from "./SelectImgUrl";
 import GenreSelector from "./GenreSelector";
+import MovieDetailsSelector from "./MovieDetailsSelector";
 
 //import { GenreSelector } from "./genreSelector";
 
@@ -18,12 +19,12 @@ function HeroComponent() {
         <div id="heroPic" style={imgUrl} />
         <div id="heroContent">
           <div className="togetherTop">
-            <h4 id="releasedYear">
+            <span id="releasedYear">
               {[...d.release_date].slice(0, 4)}
               <span id="genre">
                 <GenreSelector id={d.genre_ids} />
               </span>
-            </h4>
+            </span>
 
             <div id="vote">
               <p>
@@ -35,7 +36,7 @@ function HeroComponent() {
                 </sup>
               </p>
             </div>
-            <h4>{}</h4>
+            <MovieDetailsSelector />
           </div>
 
           <h1>{d.title}</h1>

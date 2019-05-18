@@ -2,15 +2,23 @@ import React from "react";
 import { useHttp } from "../hooks/useHttp";
 
 function MovieDetailsSelector(props) {
-  let [data, load] = useHttp("movie/299534?");
+  let [data, load] = useHttp(`movie/${props.getId}?`);
 
+  //const setTime = () => {};
+  //console.log(data);
   const movieDetails = () => {
-    let content = <span>jsjfsdjfg</span>;
-    return content;
+    // console.log(data[props.setDetails]);
+    if (props.setDetails === "runtime") {
+      let content = (parseInt(data[props.setDetails]) / 60).toFixed(2) + "h";
+      return content;
+    } else {
+      let content = data[props.setDetails];
+      return content;
+    }
   };
 
   const getDetails =
-    data && load === false ? movieDetails() : <p>`loading ${props}...`</p>;
+    data && load === false ? movieDetails() : <p>`loading ...`</p>;
   return getDetails;
 }
 

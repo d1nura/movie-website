@@ -1,12 +1,17 @@
 import React from "react";
 import "./App.scss";
 import HeroComponent from "./components/HeroContent";
+import MovieSet from "./components/MovieSet";
 
 function App() {
   return (
     <div className="App">
-      <HeroComponent />
-      <h3>name</h3>
+      <div id="heroComp">
+        <HeroComponent />
+      </div>
+      <div id="movieSet">
+        <MovieSet />
+      </div>
     </div>
   );
 }

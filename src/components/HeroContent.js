@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHttp } from "../hooks/useHttp";
 import "../css/HeroContent.scss";
 import { SelectImgUrl } from "./SelectImgUrl";
 import GenreSelector from "./GenreSelector";
 import MovieDetailsSelector from "./MovieDetailsSelector";
+//import GetVideos from "./GetVideos";
 
 //import { GenreSelector } from "./genreSelector";
 
 function HeroComponent() {
   let [data, load] = useHttp("discover/movie?sort_by=popularity.desc&");
+  let [onFrame, setOnFrame] = useState(false);
+  //console.log(onFrame);
+
+  const turnOniFrame = () => {
+    setOnFrame(true);
+    return null;
+  };
+  const closeVideo = () => {
+    setOnFrame(false);
+  };
 
   const returnData = () => {
     let d = data.results.slice(0, 1)[0];
@@ -36,16 +47,33 @@ function HeroComponent() {
                 </sup>
               </p>
             </div>
-            <MovieDetailsSelector />
           </div>
 
           <h1>{d.title}</h1>
-          <p>{}</p>
+
+          <span id="runtime">
+            <MovieDetailsSelector getId={d.id} setDetails="runtime" />
+          </span>
+
+          <p id="watchTrailer" onClick={turnOniFrame}>
+            <i className="fas fa-play-circle" />
+            Watch Trailer
+          </p>
         </div>
+        {/*<iframe
+          // src={<GetVideos id={d.id} />}
+          title="trailer"
+          className={onFrame ? "iFrame" : ""}
+        />*/}
+
+        <i
+          className="far fa-times-circle closeIcon"
+          id={onFrame ? "closeVid" : ""}
+          onClick={closeVideo}
+        />
       </div>
     );
 
-    //GenreSelector();
     console.log(d);
 
     return content;

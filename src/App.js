@@ -9,9 +9,7 @@ function App() {
       <div id="heroComp">
         <HeroComponent />
       </div>
-      <div id="movieSet">
-        <MovieSet />
-      </div>
+      <MovieSet />
     </div>
   );
 }

@@ -9,7 +9,6 @@ function MovieSet() {
 
   const setPopular = () => {
     let d = data.results.slice(1, data.results.length);
-    console.log(d[0]);
 
     let content = (
       <Router>
@@ -34,14 +33,19 @@ function MovieSet() {
               );
             })}
           </div>
-          <Route path={"/:id"} component={MovieDetailsPage} />;
+          <Route path={"/:id"} component={MovieDetailsPage} />
         </div>
       </Router>
     );
     return content;
   };
 
-  let popData = data && load === false ? setPopular() : <p>loading...</p>;
+  let popData =
+    data && load === false ? (
+      setPopular()
+    ) : (
+      <p style={{ color: "red" }}>loading...</p>
+    );
   return popData;
 }
 

@@ -16,7 +16,7 @@ function GenreSelector(props) {
       for (let i in data.genres) {
         //console.log(data.genres[0].id === props.id[0]);
         if (data.genres[i].id === props.id[l]) {
-          console.log(data.genres[i].name, l);
+          // /console.log(data.genres[i].name, l);
           //setGen([data.genres[i].name]);
           genArr.push(data.genres[i].name);
           l++;
@@ -25,7 +25,7 @@ function GenreSelector(props) {
 
       n++;
     }
-    console.log(genArr);
+    //console.log(genArr);
 
     let content = (
       <p>

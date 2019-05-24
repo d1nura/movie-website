@@ -74,7 +74,7 @@ function HeroComponent() {
       </div>
     );
 
-    console.log(d);
+    //console.log(d);
 
     return content;
   };

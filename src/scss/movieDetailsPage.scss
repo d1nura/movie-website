@@ -27,7 +27,7 @@
   top: 0;
   margin-left: 5vw;
   height: 100vh;
-  //border: 1px solid red;
+  // border: 1px solid red;
   //top: 15vh;
   padding-top: 10vh;
   h1 {
@@ -36,10 +36,11 @@
   #tagline {
     margin-top: 1vh;
     width: 50vw;
-    letter-spacing: 1px;
-    font-size: 1vw;
-    line-height: 3vh;
-    color: rgb(228, 228, 228);
+    word-spacing: 2px;
+    font-size: 1.3vw;
+    line-height: 3.5vh;
+    color: #dddddd;
+    font-weight: bold;
   }
   sup {
     margin-left: 0.6rem;

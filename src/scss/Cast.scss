@@ -1,0 +1,47 @@
+.Cast {
+  //border: 1px solid red;
+  width: 45vw;
+  margin-left: 5vw;
+  height: auto;
+  //padding-top: 4vh;
+
+  img {
+    width: 4rem;
+  }
+  h2 {
+    letter-spacing: 2px;
+    margin-bottom: 4vh;
+    color: rgb(204, 207, 226);
+  }
+}
+
+#flexCast {
+  display: flex;
+}
+
+#castBox {
+  //border: 1px solid floralwhite;
+  margin-right: 0.5vw;
+  p {
+    font-size: 1vw;
+    margin-top: 1vh;
+  }
+}
+
+#character {
+  font-size: 0.9vw;
+  color: rgb(201, 201, 201);
+}
+
+.Crew {
+  position: absolute;
+  left: 54vw;
+  top: 200vh;
+  //border: 1px solid red;
+  width: 40vw;
+  height: auto;
+}
+
+#faceScan {
+  height: 20vh;
+}

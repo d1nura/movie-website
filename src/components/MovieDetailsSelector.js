@@ -1,5 +1,6 @@
 import React from "react";
 import { useHttp } from "../hooks/useHttp";
+import { ConvertMins } from "./ConvertMins";
 
 function MovieDetailsSelector(props) {
   let [data, load] = useHttp(`movie/${props.getId}?`);
@@ -9,7 +10,7 @@ function MovieDetailsSelector(props) {
   const movieDetails = () => {
     // console.log(data[props.setDetails]);
     if (props.setDetails === "runtime") {
-      let content = (parseInt(data[props.setDetails]) / 60).toFixed(2) + "h";
+      let content = ConvertMins(data[props.setDetails]) + "h";
       return content;
     } else {
       let content = data[props.setDetails];

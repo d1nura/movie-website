@@ -1,6 +1,6 @@
 import React from "react";
 import { useHttp } from "../hooks/useHttp";
-import "../css/MovieSet/movieSet.scss";
+import "../scss/MovieSet/movieSet.scss";
 import { Link, Route, BrowserRouter as Router } from "react-router-dom";
 import MovieDetailsPage from "./MovieDetailsPage";
 
@@ -40,12 +40,7 @@ function MovieSet() {
     return content;
   };
 
-  let popData =
-    data && load === false ? (
-      setPopular()
-    ) : (
-      <p style={{ color: "red" }}>loading...</p>
-    );
+  let popData = data && load === false ? setPopular() : <p>loading...</p>;
   return popData;
 }
 

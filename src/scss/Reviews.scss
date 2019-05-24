@@ -1,0 +1,31 @@
+.Reviews {
+  width: 45vw;
+  height: auto;
+  //border: 1px solid navajowhite;
+  margin-left: 5vw;
+  margin-top: 8vh;
+  h2 {
+    letter-spacing: 2px;
+    //margin-top: 4vh;
+    color: rgb(204, 207, 226);
+  }
+  margin-bottom: 2rem;
+}
+
+#review {
+  // padding: 1vw 2vw 1vw 2vw;
+  // border: 1px solid rgb(255, 255, 255);
+  border-radius: 0.3rem;
+  margin-top: 4vh;
+  h3 {
+    margin: 1vh 0 1vh 0;
+    color: rgb(204, 207, 226);
+  }
+  p {
+    font-size: 1.2vw;
+    line-height: 1.6vw;
+    letter-spacing: 0.1vh;
+    width: 95%;
+    color: rgb(171, 170, 212);
+  }
+}

@@ -1,15 +1,18 @@
 import React from "react";
-import "../css/movieDetailsPage.scss";
+import "../scss/movieDetailsPage.scss";
 import { useHttp } from "../hooks/useHttp";
-import { SelectImgUrl } from "./SelectImgUrl";
+import { ConvertMins } from "./ConvertMins";
+import Reviews from "./Reviews";
+import { Context } from "./useContext";
+import SimilarMovies from "./SimilarMovies";
+import Cast from "./Cast";
 
 function MovieDetailsPage({ match }) {
   let [data, load] = useHttp(`movie/${match.params.id}?`);
 
   const setMoviePage = () => {
     console.log(data);
-    let imgUrl = SelectImgUrl("w500" + data.backdrop_path);
-    console.log(imgUrl);
+
     return (
       <div id="setMoviePage">
         <div
@@ -21,9 +24,10 @@ function MovieDetailsPage({ match }) {
           }}
         />
         <div id="detailsSection">
+          <a href="/">home</a>
           <h1>{data.title}</h1>
           <p id="tagline">{data.overview}</p>
-          <p id="runtime">{data.runtime}h</p>
+          <p id="runtime">{ConvertMins(data.runtime)}h</p>
           <span id="dateSpan">
             <p>{[...data.release_date].slice(0, 4)}</p>
             {data.genres.map((i, j) => {
@@ -41,6 +45,12 @@ function MovieDetailsPage({ match }) {
             <sup>/ 10</sup>
           </p>
         </div>
+
+        <Context.Provider value={{ id: match.params.id }}>
+          <Cast />
+          <Reviews />
+          <SimilarMovies />
+        </Context.Provider>
       </div>
     );
   };

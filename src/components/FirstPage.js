@@ -5,21 +5,35 @@ import HeroContent from "../components/HeroContent";
 import MovieSet from "./MovieSet";
 import "../scss/FirstPage.scss";
 import menu from "../assets/images/circled.svg";
-//import down from "../assets/images/download.svg";
 
 function FirstPage() {
   let [optionVal, setOptionVal] = useState("movie/popular?");
+  let [genre] = useHttp("genre/movie/list?");
+
+  //console.log(genre);
+
   let [data, load] = useHttp(optionVal);
   let [menuOn, setMenuOn] = useState(false);
+  let [genreON, setGenreON] = useState(false);
 
   const setSelectVal = e => {
     setOptionVal(e.target.value);
     console.log(optionVal);
   };
 
+  const setGenreForOptionVal = e => {
+    let id = e.target.closest("#genreDiv").querySelector("#hiddenId").innerText;
+    setOptionVal(`discover/movie?with_genres=${id}&`);
+  };
+
   const showMenu = () => {
     console.log(1);
     menuOn === true ? setMenuOn(false) : setMenuOn(true);
+  };
+
+  const showGenres = () => {
+    console.log(2);
+    genreON === false ? setGenreON(true) : setGenreON(false);
   };
 
   const setFirstPage = () => {
@@ -34,8 +48,8 @@ function FirstPage() {
           />
         </div>
         <div
-          id="basicMenu"
           className={menuOn === true ? "SelectMenu" : "HideMenu"}
+          id={genreON === true ? "increaseWidth" : "basicMenu"}
         >
           <select id="popularity" onChange={setSelectVal}>
             <option value="movie/top_rated?">Top Rated</option>
@@ -45,7 +59,23 @@ function FirstPage() {
             <option value="movie/now_playing?">Now Playing</option>
           </select>
           <div id="genreList">
-            <p>Genres</p>
+            <p onClick={showGenres}>Genres</p>
+            <div className="genreGrid">
+              {genre.genres.map((i, p) => {
+                return (
+                  <div
+                    onClick={setGenreForOptionVal}
+                    id={genreON === false ? "genreDivShow" : "genreDiv"}
+                    key={i.id}
+                  >
+                    {i.name}
+                    <span id="hiddenId" style={{ display: "none" }}>
+                      {i.id}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
         <PageContext.Provider value={data}>
@@ -56,7 +86,11 @@ function FirstPage() {
     );
   };
 
-  return data && load === false ? setFirstPage() : <p>loading movies...</p>;
+  return data && genre && load === false ? (
+    setFirstPage()
+  ) : (
+    <p>loading movies...</p>
+  );
 }
 
 export default FirstPage;

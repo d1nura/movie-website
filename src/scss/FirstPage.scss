@@ -1,5 +1,5 @@
 %sameAlign {
-  position: relative;
+  position: fixed;
   background: url("../assets/images/chevron1.svg");
   background-repeat: no-repeat;
   background-position: right 1vw top 50%, 0 0;
@@ -13,6 +13,21 @@
   font-size: 1vw;
   width: 10vw;
   z-index: 1;
+  top: 5vh;
+}
+
+%menuSetting {
+  background: rgb(0, 0, 0);
+  border-bottom: 1px solid rgb(0, 238, 255);
+  height: 17vh;
+  position: fixed;
+  padding-left: 10vw;
+  z-index: 1;
+  width: 100%;
+  //overflow: hidden;
+  //display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 #popularity {
@@ -42,17 +57,7 @@
   }
 }
 #basicMenu {
-  background: rgb(0, 0, 0);
-  border-bottom: 1px solid rgb(0, 238, 255);
-  height: 15vh;
-  position: fixed;
-  padding-left: 10vw;
-  z-index: 1;
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  @extend %menuSetting;
 }
 .SelectMenu {
   transition: 0.2s;
@@ -66,5 +71,37 @@
 #genreList {
   p {
     @extend %sameAlign;
+    left: 22vw;
   }
+}
+
+.genreGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  //border: 1px solid red;
+  top: 15vh;
+
+  #genreDiv {
+    margin-top: 2vh;
+    color: white;
+    background: black;
+    opacity: 1;
+    cursor: pointer;
+    //padding: 1vw;
+    transition: 0.5s;
+    &:hover {
+      color: rgb(0, 217, 255);
+    }
+  }
+  #genreDivShow {
+    color: red;
+    display: none;
+  }
+}
+
+#increaseWidth {
+  @extend %menuSetting;
+  height: 50vh;
 }

@@ -1,17 +1,16 @@
-import React, { useState } from "react";
-import { useHttp } from "../hooks/useHttp";
-import "../css/HeroContent.scss";
+import React, { useState, useContext } from "react";
+//import { useHttp } from "../hooks/useHttp";
+import "../scss/HeroContent.scss";
 import { SelectImgUrl } from "./SelectImgUrl";
 import GenreSelector from "./GenreSelector";
 import MovieDetailsSelector from "./MovieDetailsSelector";
-//import GetVideos from "./GetVideos";
-
-//import { GenreSelector } from "./genreSelector";
+import { PageContext } from "../components/PageContext";
 
 function HeroComponent() {
-  let [data, load] = useHttp("discover/movie?sort_by=popularity.desc&");
+  let getContext = useContext(PageContext);
+  //let [data, load] = useHttp("discover/movie?sort_by=popularity.desc&");
   let [onFrame, setOnFrame] = useState(false);
-  //console.log(onFrame);
+  //console.log(data);
 
   const turnOniFrame = () => {
     setOnFrame(true);
@@ -21,12 +20,14 @@ function HeroComponent() {
     setOnFrame(false);
   };
 
+  //console.log(pC);
+
   const returnData = () => {
-    let d = data.results.slice(0, 1)[0];
+    let d = getContext.results.slice(0, 1)[0];
     let imgUrl = SelectImgUrl("w1280/" + d.backdrop_path);
 
     const content = (
-      <div>
+      <div id="hero">
         <div id="heroPic" style={imgUrl} />
         <div id="heroContent">
           <div className="togetherTop">
@@ -79,9 +80,9 @@ function HeroComponent() {
     return content;
   };
 
-  let getData = data && load === false ? returnData() : <p>loading...</p>;
-  return getData;
-  // return load ? <p>loading...</p> : returnData();
+  //let getData = data && load === false ? returnData() : <p>loading...</p>;
+  //return getData;
+  return returnData();
 }
 
 export default HeroComponent;

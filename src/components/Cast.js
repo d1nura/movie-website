@@ -7,7 +7,7 @@ import facescan from "../assets/images/facescan.svg";
 function Cast() {
   let c = useContext(Context);
   let [data, load] = useHttp(`movie/${c.id}/credits?`);
-  console.log(data);
+  ///console.log(data);
   const setCast = () => {
     return (
       <div className="Cast">

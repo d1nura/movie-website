@@ -1,14 +1,17 @@
-import React from "react";
-import { useHttp } from "../hooks/useHttp";
-import "../scss/MovieSet/movieSet.scss";
+import React, { useContext } from "react";
+//import { useHttp } from "../hooks/useHttp";
+import "../scss/movieSet.scss";
 import { Link, Route, BrowserRouter as Router } from "react-router-dom";
 import MovieDetailsPage from "./MovieDetailsPage";
+import { PageContext } from "../components/PageContext";
 
 function MovieSet() {
-  let [data, load] = useHttp("movie/popular?");
+  let getContext = useContext(PageContext);
+  //let [data, load] = useHttp("movie/popular?");
+  //console.log(c);
 
   const setPopular = () => {
-    let d = data.results.slice(1, data.results.length);
+    let d = getContext.results.slice(1, getContext.results.length);
 
     let content = (
       <Router>
@@ -40,8 +43,9 @@ function MovieSet() {
     return content;
   };
 
-  let popData = data && load === false ? setPopular() : <p>loading...</p>;
-  return popData;
+  //let popData = data && load === false ? setPopular() : <p>loading...</p>;
+  //return popData;
+  return setPopular();
 }
 
 export default MovieSet;

@@ -7,7 +7,6 @@ export const useHttp = url => {
   const constUrl = "https://api.themoviedb.org/3/";
 
   useEffect(() => {
-    //console.log(constUrl + url + apikey);
     fetch(constUrl + url + apikey)
       .then(res => res.json(), { mode: "cors" })
       .then(data => {

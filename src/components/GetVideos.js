@@ -8,7 +8,11 @@ function GetVideos(props) {
     let key = data.results.slice(0, 1)[0].key;
     console.log(`https://www.youtube.com/embed/${key}`);
     const content = (
-      <iframe title="trailer" src={`https://www.youtube.com/embed/${key}`} />
+      <iframe
+        id="trailer"
+        title="trailer"
+        src={`https://www.youtube.com/embed/${key}`}
+      />
     );
     return content;
   };

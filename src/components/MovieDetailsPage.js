@@ -6,12 +6,15 @@ import Reviews from "./Reviews";
 import { Context } from "./useContext";
 import SimilarMovies from "./SimilarMovies";
 import Cast from "./Cast";
+import { Link } from "react-router-dom";
+import leftarrow from "../assets/images/leftarrow.svg";
+//import GetVideos from "./GetVideos";
 
 function MovieDetailsPage({ match }) {
   let [data, load] = useHttp(`movie/${match.params.id}?`);
 
   const setMoviePage = () => {
-    console.log(data);
+    // console.log(data);
 
     return (
       <div id="setMoviePage">
@@ -23,8 +26,18 @@ function MovieDetailsPage({ match }) {
             }") no-repeat center/cover`
           }}
         />
+        <Link to="/">
+          <img
+            alt="arrowHome"
+            src={leftarrow}
+            id="homeArrow"
+            style={{
+              width: "3.5vw"
+            }}
+          />
+        </Link>
+
         <div id="detailsSection">
-          <a href="/">home</a>
           <h1>{data.title}</h1>
           <p id="tagline">{data.overview}</p>
           <p id="runtime">{ConvertMins(data.runtime)}h</p>
@@ -56,15 +69,13 @@ function MovieDetailsPage({ match }) {
   };
 
   // let m =
-  if (data && load === false) {
-    return setMoviePage();
-  } else {
-    return (
-      <div id="loadingP">
-        <p>loading...</p>
-      </div>
-    );
-  }
+  return data && load === false ? (
+    setMoviePage()
+  ) : (
+    <div id="loadingP">
+      <p>loading...</p>
+    </div>
+  );
 }
 
 export default MovieDetailsPage;

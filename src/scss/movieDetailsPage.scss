@@ -1,9 +1,9 @@
 #loadingP {
   position: fixed;
-  width: 100%;
-  height: auto;
+  width: 100vw;
+  height: 100vh;
   color: red;
-  background: white;
+  background: rgb(182, 29, 29);
 }
 
 #setMoviePage {
@@ -20,6 +20,7 @@
   }
   overflow-y: scroll;
   overflow-x: hidden;
+  z-index: 1000;
 }
 
 #detailsSection {
@@ -27,11 +28,12 @@
   top: 0;
   margin-left: 5vw;
   height: 100vh;
-  // border: 1px solid red;
-  //top: 15vh;
+  //border: 1px solid red;
   padding-top: 10vh;
+  padding-right: 5vw;
   h1 {
     font-size: 6vw;
+    color: rgb(195, 198, 223);
   }
   #tagline {
     margin-top: 1vh;
@@ -39,7 +41,7 @@
     word-spacing: 2px;
     font-size: 1.3vw;
     line-height: 3.5vh;
-    color: #dddddd;
+    color: #8f8fb4;
     font-weight: bold;
   }
   sup {
@@ -59,6 +61,10 @@
   :nth-child(5) {
     margin-top: 2vh;
   }
+}
+
+#trailer {
+  border: 1px solid red;
 }
 
 #dateSpan {
@@ -87,4 +93,14 @@
   filter: brightness(0.9);
   opacity: 0.5;
   box-shadow: 0rem -2rem 5rem 1rem black inset;
+}
+
+#homeArrow {
+  position: fixed;
+  left: 1vw;
+  top: 2vw;
+  transition: 0.5s;
+  &:hover {
+    transform: scale(1.1);
+  }
 }

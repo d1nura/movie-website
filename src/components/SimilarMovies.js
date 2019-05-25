@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { Context } from "./useContext";
 import { useHttp } from "../hooks/useHttp";
-import { Link, Route, BrowserRouter as Router } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../scss/SimilarMovies.scss";
 
 function SimilarMovies() {
   let i = useContext(Context);
   let [data, load] = useHttp(`movie/${i.id}/similar?`);
-  console.log(data);
+  //console.log(data);
   const setSimilarMovies = () => {
     return (
       <div className="SimilarMovies">
@@ -15,9 +15,8 @@ function SimilarMovies() {
         {data.results.length > 0 ? (
           data.results.slice(0, 6).map((i, l) => {
             return (
-              <Link to={{ pathname: "/" + i.id }}>
+              <Link key={l} to={{ pathname: "/" + i.id }}>
                 <img
-                  key={l}
                   style={{ width: "12vw" }}
                   id="similarImg"
                   alt="movie posters"

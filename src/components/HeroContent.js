@@ -8,9 +8,7 @@ import { PageContext } from "../components/PageContext";
 
 function HeroComponent() {
   let getContext = useContext(PageContext);
-  //let [data, load] = useHttp("discover/movie?sort_by=popularity.desc&");
   let [onFrame, setOnFrame] = useState(false);
-  //console.log(data);
 
   const turnOniFrame = () => {
     setOnFrame(true);
@@ -19,8 +17,6 @@ function HeroComponent() {
   const closeVideo = () => {
     setOnFrame(false);
   };
-
-  //console.log(pC);
 
   const returnData = () => {
     let d = getContext.results.slice(0, 1)[0];

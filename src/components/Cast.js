@@ -3,6 +3,7 @@ import "../scss/Cast.scss";
 import { useHttp } from "../hooks/useHttp";
 import { Context } from "../components/useContext";
 import facescan from "../assets/images/facescan.svg";
+import loading from "../assets/images/loading.svg";
 
 function Cast() {
   let c = useContext(Context);
@@ -71,7 +72,11 @@ function Cast() {
     );
   };
 
-  return data && load === false ? setCast() : <p>loading cast...</p>;
+  return data && load === false ? (
+    setCast()
+  ) : (
+    <img alt="loadingAni" src={loading} id="loadingP" />
+  );
 }
 
 export default Cast;

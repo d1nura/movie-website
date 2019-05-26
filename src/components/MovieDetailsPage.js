@@ -8,14 +8,14 @@ import SimilarMovies from "./SimilarMovies";
 import Cast from "./Cast";
 import { Link } from "react-router-dom";
 import leftarrow from "../assets/images/leftarrow.svg";
+import loading from "../assets/images/loading.svg";
 //import GetVideos from "./GetVideos";
 
 function MovieDetailsPage({ match }) {
   let [data, load] = useHttp(`movie/${match.params.id}?`);
 
   const setMoviePage = () => {
-    // console.log(data);
-
+    //console.log(data);
     return (
       <div id="setMoviePage">
         <div
@@ -73,7 +73,7 @@ function MovieDetailsPage({ match }) {
     setMoviePage()
   ) : (
     <div id="loadingP">
-      <p id="loadingP">loading...</p>
+      <img alt="loadingAni" src={loading} id="loadingP" />
     </div>
   );
 }

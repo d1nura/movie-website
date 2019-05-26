@@ -3,6 +3,7 @@ import { Context } from "./useContext";
 import { useHttp } from "../hooks/useHttp";
 import { Link } from "react-router-dom";
 import "../scss/SimilarMovies.scss";
+import loading from "../assets/images/loading.svg";
 
 function SimilarMovies() {
   let i = useContext(Context);
@@ -39,7 +40,7 @@ function SimilarMovies() {
   return data && load === false ? (
     setSimilarMovies()
   ) : (
-    <p>loading similar movies...</p>
+    <img alt="loadingAni" src={loading} id="loadingP" />
   );
 }
 

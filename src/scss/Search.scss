@@ -15,6 +15,10 @@
   background-size: 1em;
   background-repeat: no-repeat;
   background-position: 0rem;
+  &::placeholder {
+    color: rgb(0, 225, 255);
+  }
+  margin-top: 1.2rem;
 }
 
 .SearchTo {

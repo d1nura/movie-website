@@ -1,0 +1,31 @@
+.Search {
+  //position: relative;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgb(0, 247, 255);
+  // transform: translateX(-50%);
+  z-index: 1;
+  outline: none;
+  color: rgb(0, 247, 255);
+  padding-left: 1.8rem;
+  padding-bottom: 0.2rem;
+  font-size: 1.5vw;
+  caret-color: rgb(0, 247, 255);
+  background: url("../assets/images/search.svg");
+  background-size: 1em;
+  background-repeat: no-repeat;
+  background-position: 0rem;
+}
+
+.SearchTo {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchResults {
+  position: absolute;
+  top: 15vh;
+  //border: 1px solid lemonchiffon;
+  background: black;
+  padding-bottom: 1vh;
+}

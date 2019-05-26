@@ -50,15 +50,16 @@ function HeroComponent() {
             </div>
           </div>
 
-          <h1>{d.title}</h1>
-
-          <span id="runtime">
-            <MovieDetailsSelector getId={d.id} setDetails="runtime" />
-          </span>
+          <h1>
+            {d.title}{" "}
+            <span id="runtime">
+              <MovieDetailsSelector getId={d.id} setDetails="runtime" />
+            </span>
+          </h1>
 
           <p id="watchTrailer" onClick={turnOniFrame}>
             <i className="fas fa-play-circle" />
-            Watch Trailer
+            Read More
           </p>
         </div>
         {/*<iframe
@@ -74,14 +75,9 @@ function HeroComponent() {
         />
       </div>
     );
-
-    //console.log(d);
-
     return content;
   };
 
-  //let getData = data && load === false ? returnData() : <p>loading...</p>;
-  //return getData;
   return returnData();
 }
 

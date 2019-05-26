@@ -7,8 +7,6 @@ import { PageContext } from "../components/PageContext";
 
 function MovieSet() {
   let getContext = useContext(PageContext);
-  //let [data, load] = useHttp("movie/popular?");
-  //console.log(c);
 
   const setPopular = () => {
     let d = getContext.results.slice(1, getContext.results.length);
@@ -43,17 +41,7 @@ function MovieSet() {
     return content;
   };
 
-  //let popData = data && load === false ? setPopular() : <p>loading...</p>;
-  //return popData;
   return setPopular();
 }
 
 export default MovieSet;
-
-/*<img
-id="movieImgID"
-alt="movie posters"
-src={`https://image.tmdb.org/t/p/w500/${
-  i.poster_path
-}?api_key=ead55bd575a94d055e5af19545cf3da3`}
-/>*/

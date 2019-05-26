@@ -73,7 +73,7 @@ function MovieDetailsPage({ match }) {
     setMoviePage()
   ) : (
     <div id="loadingP">
-      <p>loading...</p>
+      <p id="loadingP">loading...</p>
     </div>
   );
 }

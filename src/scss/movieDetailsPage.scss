@@ -1,9 +1,13 @@
 #loadingP {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
-  color: red;
-  background: rgb(182, 29, 29);
+  top: 50%;
+  left: 50%;
+  padding: 2vw;
+  transform: translate(-50%, -50%);
+  font-size: 5vw;
+  color: rgb(255, 255, 255);
+  background: rgb(0, 0, 0);
+  border: 1px solid whitesmoke;
 }
 
 #setMoviePage {
@@ -34,6 +38,9 @@
   h1 {
     font-size: 6vw;
     color: rgb(195, 198, 223);
+  }
+  p {
+    color: white;
   }
   #tagline {
     margin-top: 1vh;

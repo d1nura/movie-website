@@ -19,40 +19,38 @@ body {
   position: fixed;
   top: 0;
   background-attachment: fixed;
-
   margin-left: 10vw;
   padding: 5vw 0 5vw 0;
-  width: 40vw;
+  //width: 40vw;
   height: 100vh;
-  //border: 1px solid white;
+  // border: 1px solid white;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  //align-items: center;
-  justify-content: center;
-  color: rgb(233, 233, 233);
-  //background-attachment: fixed;
+  align-items: flex-start;
+  justify-content: space-between;
+  color: rgb(240, 240, 240);
+  h1 {
+    // border: 1px solid red;
+    font-size: 10.5vmin;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    //margin-bottom: 5vw;
+    opacity: 0.8;
+    color: rgb(243, 243, 243);
+  }
 
-  //border: 1px solid red;
-  /// @extend %bacImg;
-  //filter: brightness(0.5);
-}
-h1 {
-  // border: 1px solid red;
-  font-size: 12vmin;
-  text-align: left;
-  //margin-bottom: 5vw;
-  color: rgb(255, 255, 255);
-}
-
-p {
-  font-size: 1.4vw;
+  p {
+    font-size: 1.4vw;
+  }
 }
 
 .togetherTop {
   //border: 1px solid red;
-  position: absolute;
-  top: 2vw;
+  //position: absolute;
+  //top: 2vw;
   //margin-left: 0.5vw;
 }
 
@@ -79,28 +77,26 @@ p {
   }
 }
 #voteAvg {
-  //display: flex;
-  // align-items: baseline;
   color: rgb(255, 0, 119);
-  font-size: 1.6vw;
+  font-size: 2vw;
   font-weight: bolder;
-  //border: 1px solid rgb(94, 255, 0);
   padding: 0vw 0.5vw 0.1vw 0.5vw;
-  border: 1px solid rgb(255, 0, 119);
+  border: 2px solid rgb(255, 0, 119);
   border-radius: 0.25rem;
-
-  //border: 1px solid rgb(255, 255, 255);
 }
 
 #releasedYear {
-  font-size: 1.3vw;
+  font-size: 1.5vw;
+  font-weight: bold;
   display: flex;
   align-items: center;
   #genre {
     margin-left: 1vw;
-    color: rgb(231, 231, 231);
+    color: rgb(255, 255, 255);
     p {
-      font-size: 1vw;
+      font-size: 1.5vw;
+      font-weight: 350;
+      color: rgb(187, 187, 187);
     }
   }
 }
@@ -109,7 +105,7 @@ p {
   background: rgb(255, 29, 104);
   position: relative;
   width: 2.9rem;
-  //font-size: 1.3vw;
+  font-size: 1.3vw;
   text-align: center;
   border-radius: 0.4rem;
   margin-left: 0.5vw;
@@ -117,8 +113,8 @@ p {
 }
 
 #watchTrailer {
-  position: absolute;
-  bottom: 4vw;
+  //position: absolute;
+  //bottom: 4vw;
   font-size: 1.2vw;
   cursor: pointer;
   color: rgb(181, 176, 224);

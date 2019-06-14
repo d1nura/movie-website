@@ -1,75 +1,60 @@
-import React, { useState, useContext } from "react";
-//import { useHttp } from "../hooks/useHttp";
+import React, { useContext } from "react";
+import { Link, Route, BrowserRouter as Router } from "react-router-dom";
 import "../scss/HeroContent.scss";
 import { SelectImgUrl } from "./SelectImgUrl";
 import GenreSelector from "./GenreSelector";
 import MovieDetailsSelector from "./MovieDetailsSelector";
 import { PageContext } from "../components/PageContext";
+import MovieDetailsPage from "./MovieDetailsPage";
 
 function HeroComponent() {
   let getContext = useContext(PageContext);
-  let [onFrame, setOnFrame] = useState(false);
-
-  const turnOniFrame = () => {
-    setOnFrame(true);
-    return null;
-  };
-  const closeVideo = () => {
-    setOnFrame(false);
-  };
 
   const returnData = () => {
     let d = getContext.results.slice(0, 1)[0];
     let imgUrl = SelectImgUrl("w1280/" + d.backdrop_path);
 
     const content = (
-      <div id="hero">
-        <div id="heroPic" style={imgUrl} />
-        <div id="heroContent">
-          <div className="togetherTop">
-            <span id="releasedYear">
-              {[...d.release_date].slice(0, 4)}
-              <span id="genre">
-                <GenreSelector id={d.genre_ids} />
+      <Router>
+        <div id="hero">
+          <div id="heroPic" style={imgUrl} />
+          <div id="heroContent">
+            <div className="togetherTop">
+              <span id="releasedYear">
+                {[...d.release_date].slice(0, 4)}
+                <span id="genre">
+                  <GenreSelector id={d.genre_ids} />
+                </span>
               </span>
-            </span>
 
-            <div id="vote">
-              <p>
-                <sub id="voteAvg">{d.vote_average}</sub>
-              </p>
-              <p>
-                <sup>
-                  <span>/</span>10
-                </sup>
-              </p>
+              <div id="vote">
+                <p>
+                  <sub id="voteAvg">{d.vote_average}</sub>
+                </p>
+                <p>
+                  <sup>
+                    <span>/</span>10
+                  </sup>
+                </p>
+              </div>
             </div>
+
+            <h1>
+              {d.title}{" "}
+              <span id="runtime">
+                <MovieDetailsSelector getId={d.id} setDetails="runtime" />
+              </span>
+            </h1>
+            <Link to={{ pathname: "/" + d.id }}>
+              <p id="watchTrailer">
+                <i className="fas fa-play-circle" />
+                Read More
+              </p>
+            </Link>
           </div>
-
-          <h1>
-            {d.title}{" "}
-            <span id="runtime">
-              <MovieDetailsSelector getId={d.id} setDetails="runtime" />
-            </span>
-          </h1>
-
-          <p id="watchTrailer" onClick={turnOniFrame}>
-            <i className="fas fa-play-circle" />
-            Read More
-          </p>
+          <Route path={"/:id"} component={MovieDetailsPage} />
         </div>
-        {/*<iframe
-          // src={<GetVideos id={d.id} />}
-          title="trailer"
-          className={onFrame ? "iFrame" : ""}
-        />*/}
-
-        <i
-          className="far fa-times-circle closeIcon"
-          id={onFrame ? "closeVid" : ""}
-          onClick={closeVideo}
-        />
-      </div>
+      </Router>
     );
     return content;
   };

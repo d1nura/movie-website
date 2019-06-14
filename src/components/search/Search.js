@@ -12,7 +12,6 @@ function Search() {
   const getEnter = e => {
     if (e.key === "Enter" && e.target.value !== "") {
       console.log("enter");
-      //console.log(data.results.slice(0, 1)[0].id);
     }
   };
 

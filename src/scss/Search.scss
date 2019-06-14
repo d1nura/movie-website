@@ -1,15 +1,15 @@
+@import "responsive";
+
 .Search {
-  //position: relative;
   background: none;
   border: none;
   border-bottom: 1px solid rgb(0, 247, 255);
-  // transform: translateX(-50%);
   z-index: 1;
   outline: none;
   color: rgb(0, 247, 255);
   padding-left: 1.8rem;
   padding-bottom: 0.2rem;
-  font-size: 1.5vw;
+  font-size: 2.5vmin;
   caret-color: rgb(0, 247, 255);
   background: url("../assets/images/search.svg");
   background-size: 1em;
@@ -18,7 +18,9 @@
   &::placeholder {
     color: rgb(0, 225, 255);
   }
-  margin-top: 1.2rem;
+  @include media(420px) {
+    font-size: 2vmax;
+  }
 }
 
 .SearchTo {
@@ -29,7 +31,6 @@
 .searchResults {
   position: absolute;
   top: 15vh;
-  //border: 1px solid lemonchiffon;
   background: black;
   padding-bottom: 1vh;
 }

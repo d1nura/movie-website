@@ -1,3 +1,5 @@
+@import "responsive";
+
 #mainMenu {
   position: fixed;
   z-index: 10;
@@ -8,8 +10,13 @@
   top: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   transition: 0.24s;
+  @include media(560px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
 }
 
 .HideMenu {
@@ -23,34 +30,51 @@
   right: 5vw;
   top: 5vh;
   transition: 0.5s;
+  @include media(420px) {
+    top: 3vh;
+  }
 }
 
 %styleforDivs {
   background: url("../assets/images/chevron1.svg");
   background-repeat: no-repeat;
-  background-position: right 1vw top 50%, 0 0;
-  background-size: 1.5vw auto, 100%;
+  background-position: left 0.5vmin top 50%, 0 0;
+  background-size: 2.5vmin auto, 100%;
   cursor: pointer;
   border: 1px solid rgb(134, 237, 255);
   border-radius: 0.4rem;
   outline: none;
-  padding: 0.8vw 1vw 0.8vw 1vw;
+  padding-left: 6vmin;
   color: rgb(61, 207, 233);
   font-size: 2.5vmin;
   width: 20vmin;
+  height: 5.5vmin;
   z-index: 10;
+  margin-right: 4vmin;
+  @include media(560px) {
+    background-position: left 1.5vmin top 50%, 0 0;
+    height: auto;
+    width: auto;
+    font-size: 3.5vmin;
+  }
 }
 
 #popGenreList {
   display: flex;
-  // border: 1px solid red;
+
   div {
     @extend %styleforDivs;
+    line-height: 5.5vmin;
+    @include media(560px) {
+      padding: 0.5vmin 4vmin 0.5vmin 6vmin;
+    }
   }
   select {
     @extend %styleforDivs;
-    margin-right: 2vw;
     appearance: none;
+    border: none;
+    border: 1px solid rgb(134, 237, 255);
+    padding: 0.5vmin 4vmin 0.5vmin 6vmin;
   }
 }
 
@@ -80,7 +104,7 @@
 }
 
 #genreDivShow {
-  transform: translateY(-150%);
+  transform: translateY(-200%);
 }
 
 #typeHeading {

@@ -1,3 +1,5 @@
+@import "responsive";
+
 * {
   box-sizing: border-box;
 }
@@ -14,7 +16,6 @@
   padding-top: 5vw;
   padding-bottom: 5vw;
   box-shadow: 0rem 2rem 2rem 4rem black;
-  border: 1px solid red;
 }
 
 #divImg {
@@ -41,6 +42,22 @@
     text-align: center;
   }
   margin-bottom: 1vw;
+  @include media(650px) {
+    p {
+      font-size: 2.5vmin;
+    }
+    #date {
+      font-size: 2vmin;
+    }
+  }
+  @include media(420px) {
+    p {
+      font-size: 4.5vmin;
+    }
+    #date {
+      font-size: 3.5vmin;
+    }
+  }
 }
 
 #imgGrid {
@@ -50,6 +67,13 @@
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1vw;
   overflow: hidden;
+  @include media(650px) {
+    grid-template-columns: repeat(3, 1fr);
+    width: 90vw;
+  }
+  @include media(420px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 #movieImgID {
@@ -63,5 +87,11 @@
   &:hover {
     cursor: pointer;
     transform: scale(1.1);
+  }
+  @include media(650px) {
+    width: 30vmin;
+  }
+  @include media(420px) {
+    width: 45vmin;
   }
 }

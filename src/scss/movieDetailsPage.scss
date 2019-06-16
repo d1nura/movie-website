@@ -1,3 +1,5 @@
+@import "responsive";
+
 #loadingP {
   position: fixed;
   top: 50%;
@@ -32,12 +34,23 @@
   top: 0;
   margin-left: 5vw;
   height: 100vh;
-  //border: 1px solid red;
   padding-top: 10vh;
   padding-right: 5vw;
+  @include media(600px) {
+    padding-top: 4vh;
+  }
+  @include media(360px) {
+    padding-top: 2vh;
+  }
   h1 {
     font-size: 6vw;
     color: rgb(195, 198, 223);
+    @include media(768px) {
+      font-size: 8vmin;
+    }
+    @include media(360px) {
+      font-size: 10vmin;
+    }
   }
   p {
     color: white;
@@ -50,20 +63,39 @@
     line-height: 3.5vh;
     color: #8f8fb4;
     font-weight: bold;
+    @include media(768px) {
+      font-size: 2.5vmin;
+      width: 80vw;
+    }
+    @include media(425px) {
+      font-size: 4.5vmin;
+    }
+    @include media(360px) {
+      font-size: 5vmin;
+      line-height: 5.5vmin;
+    }
   }
   sup {
     margin-left: 0.6rem;
     font-size: 1vw;
+    @include media(360px) {
+      font-size: 2vmin;
+    }
   }
   #rating {
     font-size: 3.5vw;
     color: rgb(255, 0, 98);
     font-weight: bolder;
     margin-left: 0.5vw;
-    //border: 1px solid red;
+    @include media(360px) {
+      font-size: 8vmin;
+    }
   }
   #runtime {
     margin-top: 10vh;
+    @include media(360px) {
+      margin-top: 5vh;
+    }
   }
   :nth-child(5) {
     margin-top: 2vh;
@@ -79,7 +111,6 @@
   align-items: center;
   margin-top: 2vh;
   margin-left: 0.5vw;
-  // border: 1px solid red;
 
   :nth-child(1) {
     margin-right: 1rem;
@@ -91,6 +122,24 @@
     border-radius: 0.2rem;
     padding: 0.1rem 0.2rem 0.1rem 0.2rem;
     font-size: 1vw;
+  }
+  @include media(360px) {
+    :nth-child(1) {
+      font-size: 6vmin;
+    }
+    #sp {
+      font-size: 4vmin;
+      margin-right: 2vmin;
+    }
+  }
+  @include media(600px) {
+    :nth-child(1) {
+      font-size: 4vmin;
+    }
+    #sp {
+      font-size: 2vmin;
+      margin-right: 2vmin;
+    }
   }
 }
 
@@ -109,5 +158,10 @@
   transition: 0.5s;
   &:hover {
     transform: scale(1.1);
+  }
+  @include media(768px) {
+    border: 1px solid red;
+    left: 95vw;
+    z-index: 20;
   }
 }

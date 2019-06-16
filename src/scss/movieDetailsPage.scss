@@ -8,8 +8,6 @@
   transform: translate(-50%, -50%);
   font-size: 5vw;
   color: rgb(255, 255, 255);
-  //background: rgb(0, 0, 0);
-  //border: 1px solid whitesmoke;
 }
 
 #setMoviePage {
@@ -19,11 +17,6 @@
   width: 100vw;
   height: 100%;
   background: black;
-  img {
-    width: 100vw;
-    height: auto;
-    filter: brightness(0.8);
-  }
   overflow-y: scroll;
   overflow-x: hidden;
   z-index: 1000;
@@ -44,7 +37,7 @@
   }
   h1 {
     font-size: 6vw;
-    color: rgb(195, 198, 223);
+    color: rgb(250, 250, 253);
     @include media(768px) {
       font-size: 8vmin;
     }
@@ -61,17 +54,17 @@
     word-spacing: 2px;
     font-size: 1.3vw;
     line-height: 3.5vh;
-    color: #8f8fb4;
+    color: #f8f8fa;
     font-weight: bold;
     @include media(768px) {
       font-size: 2.5vmin;
       width: 80vw;
     }
     @include media(425px) {
-      font-size: 4.5vmin;
+      font-size: 3.5vmin;
     }
     @include media(360px) {
-      font-size: 5vmin;
+      font-size: 4vmin;
       line-height: 5.5vmin;
     }
   }
@@ -100,10 +93,6 @@
   :nth-child(5) {
     margin-top: 2vh;
   }
-}
-
-#trailer {
-  border: 1px solid red;
 }
 
 #dateSpan {
@@ -160,8 +149,20 @@
     transform: scale(1.1);
   }
   @include media(768px) {
-    border: 1px solid red;
     left: 95vw;
     z-index: 20;
+  }
+}
+
+.context {
+  @include media(650px) {
+    display: grid;
+  }
+}
+
+#gridContext {
+  @include media(650px) {
+    display: flex;
+    flex-direction: column-reverse;
   }
 }

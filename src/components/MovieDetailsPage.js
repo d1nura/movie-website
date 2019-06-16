@@ -60,9 +60,13 @@ function MovieDetailsPage({ match }) {
         </div>
 
         <Context.Provider value={{ id: match.params.id }}>
-          <Cast />
-          <Reviews />
-          <SimilarMovies />
+          <div className="context">
+            <Cast />
+            <div id="gridContext">
+              <Reviews id="rev" />
+              <SimilarMovies id="sim" />
+            </div>
+          </div>
         </Context.Provider>
       </div>
     );

@@ -1,3 +1,5 @@
+@import "responsive";
+
 .SimilarMovies {
   position: absolute;
   left: 54vw;
@@ -8,6 +10,12 @@
     letter-spacing: 2px;
     margin-bottom: 4vh;
     color: rgb(204, 207, 226);
+  }
+  @include media(650px) {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-left: 4.5vw;
   }
 }
 
